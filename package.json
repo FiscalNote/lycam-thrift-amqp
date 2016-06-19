@@ -1,0 +1,38 @@
+{
+  "name": "lycam-thrift-amqp",
+  "version": "0.1.0",
+  "description": "Support for an AMQP transport layer for Apache Thrift ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lycam/lycam-thrift-amqp.git"
+  },
+  "keywords": [
+    "apache",
+    "thrift",
+    "nodejs",
+    "amqp"
+  ],
+  "author": "no777 <wt@lycam.tv>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/lycam/lycam-thrift-amqp/issues"
+  },
+  "homepage": "https://github.com/lycam/lycam-thrift-amqp#readme",
+  "dependencies": {
+    "amqplib": "~0.4.1",
+    "thrift":"0.9.3",
+    "bluebird": "~3.4.0"
+    
+    
+  },
+  "devDependencies": {
+    "doctoc": "^0.15.0",
+    "mocha": "~1.8.1",
+    "nock": "^2.13.0",
+    "should": "~1.2.1"
+  }
+}
