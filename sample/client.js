@@ -7,7 +7,7 @@ var ThriftAmqp = new require('..')({});
 
 var protocol = thrift.TBinaryProtocol;
 // var protocol = thrift.TJSONProtocol;
-
+var uuid = require('node-uuid');
 var transport = new ThriftAmqp.transport(null, {});
 
 var client = new AccountServiceClient(transport, protocol);
@@ -16,15 +16,22 @@ transport.client = client;
 transport.connect()
 .then(function (data) {
   console.log(data);
-  setInterval(function () {
-    var balance = client.balance('user-abcd', function (err, response) {
+
+  function test() {
+    var user = Math.random() + '';
+    var balance = client.balance(user, function (err, response) {
       if (err) {
-        console.error(err);
+        console.error("error",err);
       } else {
-        console.log('balance', response);
+        console.log('balance', user, response);
+
       }
     });
-  }, 10);
+  }
+
+  setInterval(function () {
+    test();
+  }, 200);
 
 })
 .catch(function (err) {
