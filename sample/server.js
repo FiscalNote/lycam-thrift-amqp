@@ -25,12 +25,11 @@ var AccountService = require('./gen-nodejs/AccountService.js'),
 var users = {};
 
 var server = ThriftAmqp.server.createServer(AccountService, {
-  balance: function(user, result) {
-    console.log("balance:", user);
+  balance: function (user, result) {
+    console.log('balance:', user);
     return result(null, 1.0);
   },
 
- 
 });
 
 server.start();
