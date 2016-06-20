@@ -26,9 +26,8 @@ var users = {};
 
 var server = ThriftAmqp.server.createServer(AccountService, {
   balance: function(user, result) {
-    console.log("server stored:", user.uid);
-    
-    result(null,1.0);
+    console.log("balance:", user);
+    return result(null, 1.0);
   },
 
  

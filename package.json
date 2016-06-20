@@ -25,6 +25,7 @@
   "dependencies": {
     "amqplib": "~0.4.1",
     "thrift":"0.9.3",
+    "node-uuid": "",
     "bluebird": "~3.4.0"
     
     
