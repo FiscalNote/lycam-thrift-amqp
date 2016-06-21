@@ -4,12 +4,15 @@ Support for an AMQP transport layer for Apache Thrift
 
 This project implements an AMQP transport layer for Apache Thrift in NodeJS and extends the Apache Thrift tutorial.
 
+Install with:
 
+    npm install lycam-thrift-amqp
+    
 ## Server example
 
 ```javascript
 
-var ThriftAmqp = new require('..')({});
+var ThriftAmqp = new require('lycam-thrift-amqp')({});
 
 var AccountService = require('./gen-nodejs/AccountService.js'),
     ttypes = require('./gen-nodejs/Account_types');
@@ -45,7 +48,7 @@ server.run();
 
 var AccountService = require('./gen-nodejs/AccountService');
 var ttypes = require('./gen-nodejs/Account_types');
-var ThriftAmqp = new require('..')({});
+var ThriftAmqp = new require('lycam-thrift-amqp')({});
 
 var uuid = require('node-uuid');
 
