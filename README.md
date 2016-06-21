@@ -60,21 +60,17 @@ var connection = ThriftAmqp.createConnection({
 
 connection.connect(function () {
   var client = ThriftAmqp.createClient(EchoService, connection);
-  function test() {
+  var msg = "hello";
 
-    var msg = "hello";
+  client.echo(msg, function (err, response) {
+    if (err) {
+      console.error('error', err);
+    } else {
+      console.log('echo', msg, response);
 
-    client.echo(msg, function (err, response) {
-      if (err) {
-        console.error('error', err);
-      } else {
-        console.log('echo', msg, response);
-
-      }
-    });
-  }
-
-  test();
+    }
+  });
+  
 });
 
 
