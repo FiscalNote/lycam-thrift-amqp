@@ -12,7 +12,7 @@ Install with:
 
 ```javascript
 
-var ThriftAmqp = new require('lycam-thrift-amqp')({});
+var ThriftAmqp = require('lycam-thrift-amqp');
 
 var EchoService = require('./gen-nodejs/EchoService');
 
