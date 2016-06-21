@@ -17,31 +17,34 @@
  * under the License.
  */
 
-var ThriftAmqp = new require('..')({});
+var ThriftAmqp = require('..');
 
-var AccountService = require('./gen-nodejs/AccountService.js'),
-    ttypes = require('./gen-nodejs/Account_types');
+var EchoService = require('./gen-nodejs/EchoService');
+
 
 var users = {};
 
-var server = ThriftAmqp.server.createServer(AccountService, {
+var server = ThriftAmqp.createServer(EchoService, {
 
-  balance: function (user, result) {
-    console.log('balance:', user);
+  echo: function (msg, result) {
+    console.log('msg:', msg);
     var timeout = 100;//Math.random() * 1000 || 0;
     setTimeout(function () {
-      return result(null, parseFloat(user));
+      return result(null, msg);
     }, timeout);
   },
 
 }, {
   queueName: 'my-service',
+  connectUrl: 'amqp://127.0.0.1',
 });
 // console.log(server);
-server.on('connect',function(err,data){
-	console.log('server connected');
-})
-server.on('call',function(err,data){
-	console.log('server call');
-})
+server.on('connect', function (err, data) {
+  console.log('server connected');
+});
+
+server.on('call', function (err, data) {
+  console.log('server call');
+});
+
 server.run();

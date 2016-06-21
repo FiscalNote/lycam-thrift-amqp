@@ -1,14 +1,9 @@
-struct Account {
-  1: string uuid,
-  2: double balance
-}
-
 
 /**
  * Ahh, now onto the cool part, defining a service. Services just need a name
  * and can optionally inherit from another service using the extends keyword.
  */
-service AccountService {
+service EchoService {
 
   /**
    * A method definition looks like C code. It has a return type, arguments,
@@ -17,6 +12,6 @@ service AccountService {
    * field lists in struct or exception definitions.
    */
 
-   double balance(1:string uuid);
+   string echo(1:string uuid);
    
 }

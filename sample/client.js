@@ -1,7 +1,7 @@
 
-var AccountService = require('./gen-nodejs/AccountService');
-var ttypes = require('./gen-nodejs/Account_types');
-var ThriftAmqp = new require('..')({});
+var EchoService = require('./gen-nodejs/EchoService');
+
+var ThriftAmqp = require('..');
 
 var uuid = require('node-uuid');
 
@@ -11,14 +11,16 @@ var connection = ThriftAmqp.createConnection({
 });
 
 connection.connect(function () {
-  var client = ThriftAmqp.createClient(AccountService, connection);
+  var client = ThriftAmqp.createClient(EchoService, connection);
   function test() {
-    var user = Math.random() + '';
-    var balance = client.balance(user, function (err, response) {
+
+    var msg = uuid.v1();
+
+    client.echo(msg, function (err, response) {
       if (err) {
         console.error('error', err);
       } else {
-        console.log('balance', user, response);
+        console.log('echo', msg, response);
 
       }
     });

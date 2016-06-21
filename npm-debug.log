@@ -1,0 +1,127 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.29
+3 info using node@v0.10.41
+4 warn deprecated This version of npm lacks support for important features,
+5 warn deprecated such as scoped packages, offered by the primary npm
+6 warn deprecated registry. Consider upgrading to at least npm@2, if not the
+7 warn deprecated latest stable version. To upgrade to npm@2, run:
+8 warn deprecated npm -g install npm@latest-2
+9 warn deprecated To upgrade to the latest stable version, run:
+10 warn deprecated npm -g install npm@latest
+11 warn deprecated (Depending on how Node.js was installed on your system, you
+12 warn deprecated may need to prefix the preceding commands with `sudo`, or if
+13 warn deprecated on Windows, run them from an Administrator prompt.)
+14 warn deprecated If you're running the version of npm bundled with
+15 warn deprecated Node.js 0.10 LTS, be aware that the next version of 0.10 LTS
+16 warn deprecated will be bundled with a version of npm@2, which has some small
+17 warn deprecated backwards-incompatible changes made to `npm run-script` and
+18 warn deprecated semver behavior.
+19 verbose publish [ '.' ]
+20 verbose cache add [ '.', null ]
+21 verbose cache add name=undefined spec="." args=[".",null]
+22 verbose parsed url { protocol: null,
+22 verbose parsed url   slashes: null,
+22 verbose parsed url   auth: null,
+22 verbose parsed url   host: null,
+22 verbose parsed url   port: null,
+22 verbose parsed url   hostname: null,
+22 verbose parsed url   hash: null,
+22 verbose parsed url   search: null,
+22 verbose parsed url   query: null,
+22 verbose parsed url   pathname: '.',
+22 verbose parsed url   path: '.',
+22 verbose parsed url   href: '.' }
+23 silly lockFile 3a52ce78- .
+24 verbose lock . /Users/no777/.npm/3a52ce78-.lock
+25 verbose tar pack [ '/Users/no777/.npm/lycam-thrift-amqp/0.1.0/package.tgz', '.' ]
+26 verbose tarball /Users/no777/.npm/lycam-thrift-amqp/0.1.0/package.tgz
+27 verbose folder .
+28 info prepublish lycam-thrift-amqp@0.1.0
+29 silly lockFile 1f1177db-tar tar://.
+30 verbose lock tar://. /Users/no777/.npm/1f1177db-tar.lock
+31 silly lockFile 11f3bb97-am-thrift-amqp-0-1-0-package-tgz tar:///Users/no777/.npm/lycam-thrift-amqp/0.1.0/package.tgz
+32 verbose lock tar:///Users/no777/.npm/lycam-thrift-amqp/0.1.0/package.tgz /Users/no777/.npm/11f3bb97-am-thrift-amqp-0-1-0-package-tgz.lock
+33 silly lockFile 1f1177db-tar tar://.
+34 silly lockFile 1f1177db-tar tar://.
+35 silly lockFile 11f3bb97-am-thrift-amqp-0-1-0-package-tgz tar:///Users/no777/.npm/lycam-thrift-amqp/0.1.0/package.tgz
+36 silly lockFile 11f3bb97-am-thrift-amqp-0-1-0-package-tgz tar:///Users/no777/.npm/lycam-thrift-amqp/0.1.0/package.tgz
+37 silly lockFile bf6de3fc--lycam-thrift-amqp-0-1-0-package /Users/no777/.npm/lycam-thrift-amqp/0.1.0/package
+38 verbose lock /Users/no777/.npm/lycam-thrift-amqp/0.1.0/package /Users/no777/.npm/bf6de3fc--lycam-thrift-amqp-0-1-0-package.lock
+39 silly lockFile bf6de3fc--lycam-thrift-amqp-0-1-0-package /Users/no777/.npm/lycam-thrift-amqp/0.1.0/package
+40 silly lockFile bf6de3fc--lycam-thrift-amqp-0-1-0-package /Users/no777/.npm/lycam-thrift-amqp/0.1.0/package
+41 silly lockFile 3a52ce78- .
+42 silly lockFile 3a52ce78- .
+43 silly publish { name: 'lycam-thrift-amqp',
+43 silly publish   version: '0.1.0',
+43 silly publish   description: 'Support for an AMQP transport layer for Apache Thrift ',
+43 silly publish   main: 'index.js',
+43 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+43 silly publish   repository:
+43 silly publish    { type: 'git',
+43 silly publish      url: 'git+https://github.com/lycam/lycam-thrift-amqp.git' },
+43 silly publish   keywords: [ 'apache', 'thrift', 'nodejs', 'amqp' ],
+43 silly publish   author: { name: 'no777', email: 'wt@lycam.tv' },
+43 silly publish   license: 'Apache-2.0',
+43 silly publish   bugs: { url: 'https://github.com/lycam/lycam-thrift-amqp/issues' },
+43 silly publish   homepage: 'https://github.com/lycam/lycam-thrift-amqp#readme',
+43 silly publish   dependencies:
+43 silly publish    { amqplib: '~0.4.1',
+43 silly publish      thrift: '0.9.3',
+43 silly publish      'node-uuid': '',
+43 silly publish      lodash: 'v2.4.1',
+43 silly publish      bluebird: '~3.4.0' },
+43 silly publish   devDependencies:
+43 silly publish    { doctoc: '^0.15.0',
+43 silly publish      mocha: '~1.8.1',
+43 silly publish      nock: '^2.13.0',
+43 silly publish      should: '~1.2.1' },
+43 silly publish   readme: 'lycam-thrift-amqp\n\nSupport for an AMQP transport layer for Apache Thrift\n\nThis project implements an AMQP transport layer for Apache Thrift in NodeJS and extends the Apache Thrift tutorial.\n\nInstall with:\n\n    npm install lycam-thrift-amqp\n\n## Server example\n\n```javascript\n\nvar ThriftAmqp = new require(\'lycam-thrift-amqp\')({});\n\nvar EchoService = require(\'./gen-nodejs/EchoService\');\n\n\nvar users = {};\n\nvar server = ThriftAmqp.createServer(EchoService, {\n\n  echo: function (msg, result) {\n    console.log(\'msg:\', msg);\n    var timeout = 100;//Math.random() * 1000 || 0;\n    setTimeout(function () {\n      return result(null, msg);\n    }, timeout);\n  },\n\n}, {\n  queueName: \'my-service\',\n  connectUrl: \'amqp://127.0.0.1\',\n});\n// console.log(server);\nserver.on(\'connect\', function (err, data) {\n  console.log(\'server connected\');\n});\n\nserver.on(\'call\', function (err, data) {\n  console.log(\'server call\');\n});\n\nserver.run();\n\n```\n## Client example\n```javascript\n\n\nvar EchoService = require(\'./gen-nodejs/EchoService\');\n\nvar ThriftAmqp = require(\'lycam-thrift-amqp\');\n\nvar connection = ThriftAmqp.createConnection({\n  connectUrl: \'amqp://127.0.0.1\',\n  queueName: \'my-service\',\n});\n\nconnection.connect(function () {\n  var client = ThriftAmqp.createClient(EchoService, connection);\n  function test() {\n\n    var msg = "hello";\n\n    client.echo(msg, function (err, response) {\n      if (err) {\n        console.error(\'error\', err);\n      } else {\n        console.log(\'echo\', msg, response);\n\n      }\n    });\n  }\n\n  test();\n});\n\n\n```\n',
+43 silly publish   readmeFilename: 'README.md',
+43 silly publish   gitHead: 'c4c0a0338b7972263972263e6a1abfa217687d2c',
+43 silly publish   _id: 'lycam-thrift-amqp@0.1.0',
+43 silly publish   _shasum: '561e4fbb93fde31a804f236824a2614d7eaa7244',
+43 silly publish   _from: '.' }
+44 verbose request where is /lycam-thrift-amqp
+45 verbose request registry https://registry.npmjs.org/
+46 verbose request id 822f00237b6e7287
+47 verbose url raw /lycam-thrift-amqp
+48 verbose url resolving [ 'https://registry.npmjs.org/', './lycam-thrift-amqp' ]
+49 verbose url resolved https://registry.npmjs.org/lycam-thrift-amqp
+50 verbose request where is https://registry.npmjs.org/lycam-thrift-amqp
+51 info trying registry request attempt 1 at 19:01:18
+52 http PUT https://registry.npmjs.org/lycam-thrift-amqp
+53 http 403 https://registry.npmjs.org/lycam-thrift-amqp
+54 verbose headers { 'content-type': 'application/json',
+54 verbose headers   'cache-control': 'max-age=300',
+54 verbose headers   'content-length': '128',
+54 verbose headers   'accept-ranges': 'bytes',
+54 verbose headers   date: 'Tue, 21 Jun 2016 11:02:01 GMT',
+54 verbose headers   via: '1.1 varnish',
+54 verbose headers   connection: 'keep-alive',
+54 verbose headers   'x-served-by': 'cache-sin6922-SIN',
+54 verbose headers   'x-cache': 'MISS',
+54 verbose headers   'x-cache-hits': '0',
+54 verbose headers   'x-timer': 'S1466506905.490667,VS0,VE15733',
+54 verbose headers   vary: 'Accept-Encoding' }
+55 error publish Failed PUT 403
+56 error Error: "You cannot publish over the previously published version 0.1.0. Try bumping the version to 1.0.0" : lycam-thrift-amqp
+56 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+56 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+56 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:236:22)
+56 error     at Request.emit (events.js:98:17)
+56 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+56 error     at Request.emit (events.js:117:20)
+56 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+56 error     at IncomingMessage.emit (events.js:117:20)
+56 error     at _stream_readable.js:944:16
+56 error     at process._tickCallback (node.js:448:13)
+57 error If you need help, you may report this *entire* log,
+57 error including the npm and node versions, at:
+57 error     <http://github.com/npm/npm/issues>
+58 error System Darwin 15.3.0
+59 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+60 error cwd /Users/no777/Documents/devel/lycam+/lycam-thrift-amqp
+61 error node -v v0.10.41
+62 error npm -v 1.4.29
+63 verbose exit [ 1, true ]

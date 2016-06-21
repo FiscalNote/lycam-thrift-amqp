@@ -1,5 +1,5 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
 2 info using npm@1.4.29
 3 info using node@v0.10.41
 4 warn deprecated This version of npm lacks support for important features,
@@ -17,16 +17,36 @@
 16 warn deprecated will be bundled with a version of npm@2, which has some small
 17 warn deprecated backwards-incompatible changes made to `npm run-script` and
 18 warn deprecated semver behavior.
-19 error Error: ENOENT, open '/Users/no777/Documents/devel/lycam+/lycam-thrift-amqp/sample/package.json'
-20 error If you need help, you may report this *entire* log,
-20 error including the npm and node versions, at:
-20 error     <http://github.com/npm/npm/issues>
-21 error System Darwin 15.3.0
-22 error command "/usr/local/bin/node" "/usr/local/bin/npm" "start"
-23 error cwd /Users/no777/Documents/devel/lycam+/lycam-thrift-amqp/sample
-24 error node -v v0.10.41
-25 error npm -v 1.4.29
-26 error path /Users/no777/Documents/devel/lycam+/lycam-thrift-amqp/sample/package.json
-27 error code ENOENT
-28 error errno 34
-29 verbose exit [ 34, true ]
+19 verbose publish [ '.' ]
+20 verbose cache add [ '.', null ]
+21 verbose cache add name=undefined spec="." args=[".",null]
+22 verbose parsed url { protocol: null,
+22 verbose parsed url   slashes: null,
+22 verbose parsed url   auth: null,
+22 verbose parsed url   host: null,
+22 verbose parsed url   port: null,
+22 verbose parsed url   hostname: null,
+22 verbose parsed url   hash: null,
+22 verbose parsed url   search: null,
+22 verbose parsed url   query: null,
+22 verbose parsed url   pathname: '.',
+22 verbose parsed url   path: '.',
+22 verbose parsed url   href: '.' }
+23 silly lockFile 3a52ce78- .
+24 verbose lock . /Users/no777/.npm/3a52ce78-.lock
+25 silly lockFile 3a52ce78- .
+26 silly lockFile 3a52ce78- .
+27 error addLocal Could not install .
+28 error Error: ENOENT, open 'package.json'
+29 error If you need help, you may report this *entire* log,
+29 error including the npm and node versions, at:
+29 error     <http://github.com/npm/npm/issues>
+30 error System Darwin 15.3.0
+31 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+32 error cwd /Users/no777/Documents/devel/lycam+/lycam-thrift-amqp/sample
+33 error node -v v0.10.41
+34 error npm -v 1.4.29
+35 error path package.json
+36 error code ENOENT
+37 error errno 34
+38 verbose exit [ 34, true ]

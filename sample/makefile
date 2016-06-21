@@ -1,2 +1,2 @@
 gen:
-	thrift --gen js:node thrift/Account.thrift
+	thrift --gen js:node thrift/Echo.thrift
