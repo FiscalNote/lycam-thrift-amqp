@@ -28,12 +28,20 @@ var server = ThriftAmqp.server.createServer(AccountService, {
 
   balance: function (user, result) {
     console.log('balance:', user);
-    var timeout = Math.random() * 1000 || 0;
+    var timeout = 100;//Math.random() * 1000 || 0;
     setTimeout(function () {
       return result(null, parseFloat(user));
     }, timeout);
   },
 
+}, {
+  queueName: 'my-service',
 });
-
-server.start();
+// console.log(server);
+server.on('connect',function(err,data){
+	console.log('server connected');
+})
+server.on('call',function(err,data){
+	console.log('server call');
+})
+server.run();

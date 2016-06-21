@@ -26,6 +26,7 @@
     "amqplib": "~0.4.1",
     "thrift":"0.9.3",
     "node-uuid": "",
+    "lodash": "v2.4.1",
     "bluebird": "~3.4.0"
     
     
