@@ -24,12 +24,10 @@
   "homepage": "https://github.com/lycam/lycam-thrift-amqp#readme",
   "dependencies": {
     "amqplib": "~0.4.1",
-    "thrift":"0.9.3",
+    "thrift": "0.9.3",
     "node-uuid": "",
     "lodash": "v2.4.1",
     "bluebird": "~3.4.0"
-    
-    
   },
   "devDependencies": {
     "doctoc": "^0.15.0",
