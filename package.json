@@ -1,6 +1,6 @@
 {
   "name": "lycam-thrift-amqp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Support for an AMQP transport layer for Apache Thrift ",
   "main": "index.js",
   "scripts": {
@@ -28,8 +28,8 @@
     "node-uuid": "",
     "lodash": "v2.4.1",
     "bluebird": "~3.4.0"
-    
-    
+
+
   },
   "devDependencies": {
     "doctoc": "^0.15.0",
