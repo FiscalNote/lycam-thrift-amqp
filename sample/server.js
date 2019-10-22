@@ -26,10 +26,12 @@ var users = {};
 
 var server = ThriftAmqp.createServer(EchoService, {
 
-  echo: function (msg, result) {
+  echo: function (properties, msg, result) {
     console.log('msg:', msg);
     var timeout = 100;//Math.random() * 1000 || 0;
     setTimeout(function () {
+      console.log('messageId:', properties.messageId);
+      console.log('timestamp:', properties.timestamp);
       return result(null, msg);
     }, timeout);
   },
