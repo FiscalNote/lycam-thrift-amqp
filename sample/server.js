@@ -27,9 +27,15 @@ var users = {};
 var server = ThriftAmqp.createServer(EchoService, {
 
   echo: function (msg, result) {
+    // The properties for the message must be read and saved immediately
+    // since they will be overwritten as soon as another message is processed
+    // which could happen as soon as we exit this function.
+    var last_properties = server.last_properties;
     console.log('msg:', msg);
     var timeout = 100;//Math.random() * 1000 || 0;
     setTimeout(function () {
+      console.log('messageId:', last_properties.messageId);
+      console.log('timestamp:', last_properties.timestamp);
       return result(null, msg);
     }, timeout);
   },
